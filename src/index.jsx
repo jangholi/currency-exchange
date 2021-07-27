@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Theme from './ThemeProvider';
 import Routes from './routes/routes-dumb';
-import './index.scss';
 
 ReactDOM.render(
-  <Routes />,
+  <Theme>
+    <Routes />
+  </Theme>,
   document.getElementById('root'),
 );
