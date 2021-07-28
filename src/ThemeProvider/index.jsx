@@ -16,6 +16,7 @@ const useGlobalStyles = makeStyles({
   '@global': {
     body: {
       margin: 0,
+      backgroundColor: 'lightgray',
     },
   },
 });
