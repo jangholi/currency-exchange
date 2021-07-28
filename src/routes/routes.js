@@ -4,7 +4,7 @@ import conversionHistory from '../pages/conversion-history';
 
 const Routes = [
   {
-    key: 1, path: '/currency-exchange', component: currencyExchange, exact: true,
+    key: 1, path: '/', component: currencyExchange, exact: true,
   },
   {
     key: 2, path: '/currency-converter', component: currencyConverter, exact: true,
