@@ -7,7 +7,8 @@ const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
     backgroundColor: 'white',
-    padding: '0 10px',
+    paddingRight: '10%',
+    paddingLeft: '10%',
   },
   buttonContainer: {
     display: 'flex',
@@ -38,7 +39,7 @@ function Header() {
       <Grid item md={10} xs={12}>
         <Tabs data={tabData} />
       </Grid>
-      <Grid className={classes.buttonContainer} item md={2} xs={12}>
+      <Grid item className={classes.buttonContainer} md={2} xs={12}>
         <Button color="primary">
           LOGOUT
         </Button>
