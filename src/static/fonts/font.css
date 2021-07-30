@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Roboto-regular';
+    src: url('Roboto-Regular-webfont.eot');
+    src: url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('Roboto-Regular-webfont.woff') format('woff'),
+    url('Roboto-Regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-bold';
+    src: url('Roboto-Bold-webfont.eot');
+    src: url('Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('Roboto-Bold-webfont.woff') format('woff'),
+    url('Roboto-Bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
