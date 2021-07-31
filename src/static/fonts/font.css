@@ -7,13 +7,3 @@
     font-weight: normal;
     font-style: normal;
 }
-
-@font-face {
-    font-family: 'RobotoBold';
-    src: url('Roboto-Bold-webfont.eot');
-    src: url('Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('Roboto-Bold-webfont.woff') format('woff'),
-    url('Roboto-Bold-webfont.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
