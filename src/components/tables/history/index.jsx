@@ -39,7 +39,13 @@ export default function BasicTable({ rows, columns, haveAction }) {
               <StyledTableCell component="th" scope="row">
                 {row[0]}
               </StyledTableCell>
-              <StyledTableCell>{row[1]}</StyledTableCell>
+              <StyledTableCell>
+                {
+                  Array.isArray(row[1])
+                    ? `Converted an amount of ${row[1][2]} from ${row[1][0]} to ${row[1][1]}`
+                    : row[1]
+                }
+              </StyledTableCell>
               {haveAction && (
                 <StyledTableCell hidden>
                   {(showAction && index === i) && (
