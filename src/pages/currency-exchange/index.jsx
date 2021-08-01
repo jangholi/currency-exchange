@@ -1,8 +1,9 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
 
 function CurrencyExchange() {
   return (
-    <p>CurrencyExchange page</p>
+    <Grid item md={12} />
   );
 }
 
