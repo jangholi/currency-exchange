@@ -15,7 +15,7 @@ function PageTitle({ children }) {
   const classes = useStyles();
 
   return (
-    <Grid md={12}>
+    <Grid item md={12}>
       <Typography component="h2" className={classes.root}>
         {children}
       </Typography>
