@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function AppButton({
   children, loading = false, fill, clickHandler,
@@ -14,10 +15,7 @@ function AppButton({
     >
       {children}
       &nbsp;
-      <i
-        className="fa fa-spin fa-spinner fa-2x"
-        style={loading ? {} : { display: 'none' }}
-      />
+      {loading && <CircularProgress size={20} />}
     </Button>
   );
 }
