@@ -26,7 +26,7 @@ export default class HttpClient {
       method,
       url,
       data,
-      params,
+      params: { ...{ key: process.env.REACT_APP_API_KEY }, ...params },
     });
   }
 }
