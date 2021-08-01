@@ -1,13 +1,16 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 
-function AppButton({ children, loading = false, fill }) {
+function AppButton({
+  children, loading = false, fill, clickHandler,
+}) {
   return (
     <Button
       type="submit"
       disabled={loading}
       {...(fill ? { variant: 'contained' } : {})}
       color="primary"
+      onClick={clickHandler}
     >
       {children}
       &nbsp;
