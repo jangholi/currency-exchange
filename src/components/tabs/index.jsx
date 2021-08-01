@@ -17,6 +17,7 @@ function TabComponent({ history, data = [] }) {
         <Tab
           label={e.label}
           value={e.value}
+          key={e.value}
         />
       ))}
     </Tabs>
