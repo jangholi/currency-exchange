@@ -22,7 +22,7 @@ const useGlobalStyles = makeStyles({
     body: {
       margin: 0,
       backgroundColor: 'lightgray',
-      fontFamily: 'Roboto',
+      fontFamily: 'Roboto-regular',
       fontSize: '16px',
     },
   },
