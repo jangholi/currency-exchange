@@ -42,7 +42,7 @@ export default function BasicTable({ rows, columns, haveAction }) {
               <StyledTableCell>
                 {
                   Array.isArray(row[1])
-                    ? `Converted an amount of ${row[1][2]} from ${row[1][0]} to ${row[1][1]}`
+                    ? `Converted an amount of ${row?.[1]?.[2]} from ${row?.[1]?.[0]} to ${row?.[1]?.[1]}`
                     : row[1]
                 }
               </StyledTableCell>
