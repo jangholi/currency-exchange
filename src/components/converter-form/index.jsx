@@ -14,6 +14,7 @@ function ConverterForm() {
   const [from, setFrom] = React.useState('');
   const [to, setTo] = React.useState('');
   const [showResult, setShowResult] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const calcExchangeCurency = () => {
     const params = {
@@ -25,8 +26,12 @@ function ConverterForm() {
     exchangeCurrency(params)
       .then((res) => {
         setShowResult(true);
+        setLoading(false);
         const price = res?.data?.[0]?.price;
         setEndAmout(price || 0);
+      })
+      .catch(() => {
+        setLoading(false);
       });
   };
 
@@ -35,6 +40,7 @@ function ConverterForm() {
     setTo(from);
   };
   const submitConvert = (e) => {
+    setLoading(true);
     e.preventDefault();
     calcExchangeCurency();
   };
@@ -66,6 +72,7 @@ function ConverterForm() {
           <Button
             clickHandler={submitConvert}
             fill
+            loading={loading}
           >
             CONVERT
           </Button>
