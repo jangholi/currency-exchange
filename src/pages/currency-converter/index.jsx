@@ -12,7 +12,7 @@ import Select from '../../components/atoms/select';
 import RadioButton from '../../components/atoms/radio-group';
 import StatisticChart from '../../components/tables/statistics';
 
-function CurrencyConverter() {
+function CurrencyConverter({ location }) {
   const classes = useStyles();
   const [history, setHistory] = React.useState([]);
   const [showResult, setShowResult] = React.useState(false);
@@ -78,7 +78,7 @@ function CurrencyConverter() {
 
       {/* Converter Form */}
       <Box mb={5}>
-        <ConverterForm submitHandler={submitConverterForm} />
+        <ConverterForm submitHandler={submitConverterForm} location={location} />
       </Box>
 
       {/* result (contain table and chart) */}

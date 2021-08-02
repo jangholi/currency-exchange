@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -50,10 +51,16 @@ export default function BasicTable({ rows, columns, haveAction }) {
                 <StyledTableCell hidden>
                   {(showAction && index === i) && (
                     <div className={classes.iconContainer}>
-                      <span className={classes.view}>
+                      <Link
+                        to={{
+                          pathname: 'currency-converter',
+                          state: row[2],
+                        }}
+                        className={classes.view}
+                      >
                         <RemoveRedEyeIcon fontSize="small" className={classes.icon} />
                         View
-                      </span>
+                      </Link>
                       <span className={classes.delete}>
                         <DeleteForeverIcon className={classes.icon} />
                         Delete from history

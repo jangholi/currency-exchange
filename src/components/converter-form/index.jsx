@@ -8,7 +8,7 @@ import { exchangeCurrency } from '../../api/currency';
 import { useStyles } from './style';
 import { getHistory, setHistory } from '../../utils/LocalStorageManagement';
 
-function ConverterForm({ submitHandler }) {
+function ConverterForm({ submitHandler, location }) {
   const classes = useStyles();
   const [startAmout, setStartAmout] = React.useState(0);
   const [endAmout, setEndAmout] = React.useState(0);
@@ -54,15 +54,26 @@ function ConverterForm({ submitHandler }) {
         setLoading(false);
       });
   };
+  const submitConvert = (e) => {
+    setLoading(true);
+    e?.preventDefault();
+    calcExchangeCurency();
+  };
+
+  React.useEffect(() => {
+    const state = location?.state;
+
+    if (state) {
+      setFrom(state[0]);
+      setTo(state[1]);
+      setStartAmout(state[2]);
+      submitConvert();
+    }
+  }, [location]);
 
   const flipCurrency = () => {
     setFrom(to);
     setTo(from);
-  };
-  const submitConvert = (e) => {
-    setLoading(true);
-    e.preventDefault();
-    calcExchangeCurency();
   };
 
   return (
