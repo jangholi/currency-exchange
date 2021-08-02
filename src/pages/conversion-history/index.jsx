@@ -19,7 +19,10 @@ function ConversionHistory() {
         </PageTitle>
       </Box>
       <Box>
-        <ConversionTable history={history} />
+        <ConversionTable
+          history={history}
+          updateHistory={() => setHistory(getHistory())}
+        />
       </Box>
     </Grid>
   );

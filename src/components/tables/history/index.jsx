@@ -9,11 +9,21 @@ import Paper from '@material-ui/core/Paper';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import { useStyles, StyledTableCell } from './style';
+import { getHistory, setHistory } from '../../../utils/LocalStorageManagement';
 
-export default function BasicTable({ rows, columns, haveAction }) {
+export default function BasicTable({
+  rows, columns, haveAction, rowsUpdate,
+}) {
   const classes = useStyles();
   const [showAction, setShowAction] = useState(false);
   const [index, setIndex] = useState(null);
+
+  const deleteItemFromHistory = (e, i) => {
+    const history = getHistory();
+    history.splice(i, 1);
+    setHistory(JSON.stringify(history));
+    rowsUpdate();
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -61,7 +71,13 @@ export default function BasicTable({ rows, columns, haveAction }) {
                         <RemoveRedEyeIcon fontSize="small" className={classes.icon} />
                         View
                       </Link>
-                      <span className={classes.delete}>
+                      <span
+                        role="button"
+                        className={classes.delete}
+                        onClick={(e) => deleteItemFromHistory(e, i)}
+                        onKeyUp={(e) => deleteItemFromHistory(e, i)}
+                        tabIndex={i}
+                      >
                         <DeleteForeverIcon className={classes.icon} />
                         Delete from history
                       </span>

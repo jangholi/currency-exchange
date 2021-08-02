@@ -4,21 +4,20 @@ import TableCell from '@material-ui/core/TableCell';
 export const useStyles = makeStyles((theme) => ({
   iconContainer: {
     display: 'flex',
+    '& > a, span': {
+      display: 'flex',
+      columnGap: 3,
+      fontSize: 13,
+      cursor: 'pointer',
+      textDecoration: 'none',
+    },
   },
   view: {
     color: theme.palette.primary.main,
     marginRight: 20,
-    display: 'flex',
-    columnGap: 3,
-    fontSize: 13,
-    cursor: 'pointer',
   },
   delete: {
     color: theme.palette.text.hint,
-    display: 'flex',
-    columnGap: 3,
-    fontSize: 13,
-    cursor: 'pointer',
   },
   icon: {
     fontSize: 15,
