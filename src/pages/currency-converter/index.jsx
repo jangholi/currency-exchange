@@ -6,7 +6,6 @@ import ExchangeTable from '../../components/tables/exchange-history';
 import ConverterForm from '../../components/converter-form';
 import Linechart from '../../components/charts/linechart';
 import { useStyles } from './style';
-import { getHistory } from '../../utils/LocalStorageManagement';
 import { filterLocalStorageByDate } from '../../helpers/filterLocalStorageByDate';
 import Select from '../../components/atoms/select';
 import RadioButton from '../../components/atoms/radio-group';
@@ -38,7 +37,7 @@ function CurrencyConverter({ location }) {
       label: 'Chart',
     },
   ];
-  const day = 7;
+  const [day, setDay] = React.useState(7);
 
   const filterHistory = (val) => {
     const filteredHistory = filterLocalStorageByDate(val);
@@ -50,12 +49,13 @@ function CurrencyConverter({ location }) {
   }, []);
 
   const submitConverterForm = () => {
-    setHistory(getHistory());
+    filterHistory(day);
     setShowResult(true);
   };
 
   const changeDuration = (value) => {
     filterHistory(value);
+    setDay(value);
   };
 
   const changeRadio = (val) => {
