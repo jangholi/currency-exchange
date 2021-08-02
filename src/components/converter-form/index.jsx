@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '../atoms/button';
 import { exchangeCurrency } from '../../api/currency';
 import { useStyles } from './style';
+import { getHistory, setHistory } from '../../utils/LocalStorageManagement';
 
 function ConverterForm() {
   const classes = useStyles();
@@ -16,6 +17,21 @@ function ConverterForm() {
   const [showResult, setShowResult] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  const setDataInhistory = () => {
+    const history = getHistory('history');
+    const newData = {
+      from,
+      to,
+      startAmout: +startAmout,
+      endAmout,
+      exchangeRate: (+startAmout / endAmout),
+      date: Date.now(),
+    };
+
+    const newHistory = [...history, ...[newData]];
+
+    setHistory(JSON.stringify(newHistory));
+  };
   const calcExchangeCurency = () => {
     const params = {
       ids: from,
@@ -27,8 +43,12 @@ function ConverterForm() {
       .then((res) => {
         setShowResult(true);
         setLoading(false);
+
         const price = res?.data?.[0]?.price;
+
         setEndAmout(price || 0);
+
+        setDataInhistory();
       })
       .catch(() => {
         setLoading(false);
