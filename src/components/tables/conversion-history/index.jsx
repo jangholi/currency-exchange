@@ -14,7 +14,7 @@ function ConversionHistoryTable({ history = [] }) {
     });
 
     setRows(tableRows);
-  }, []);
+  }, [history]);
 
   return (
     <Table rows={rows} columns={columns} haveAction />
