@@ -2,16 +2,14 @@ import React from 'react';
 import Table from '../history';
 import { formatDate } from '../../../helpers/formatDate';
 
-function ConversionHistoryTable() {
+function ConversionHistoryTable({ history = [] }) {
   const [rows, setRows] = React.useState([]);
   const columns = ['Date', 'Event', ''];
 
   React.useEffect(() => {
-    const history = localStorage.getItem('changeHistory');
-    const parseHistory = history ? JSON.parse(history) : [];
-    const tableRows = [...rows];
+    const tableRows = [];
 
-    parseHistory.forEach((e) => {
+    history.forEach((e) => {
       tableRows.push([e.date, formatDate(e.date, true), [e.from, e.to, e.startAmout, e.endAmout]]);
     });
 
