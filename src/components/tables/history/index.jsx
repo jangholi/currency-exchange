@@ -27,7 +27,7 @@ export default function BasicTable({ rows, columns, haveAction }) {
         <TableBody>
           {rows.map((row, i) => (
             <TableRow
-              key={row[1]}
+              key={row[0]}
               onMouseEnter={() => {
                 setIndex(i);
                 setShowAction(true);
@@ -37,13 +37,13 @@ export default function BasicTable({ rows, columns, haveAction }) {
               }}
             >
               <StyledTableCell component="th" scope="row">
-                {row[0]}
+                {row[1]}
               </StyledTableCell>
               <StyledTableCell>
                 {
-                  Array.isArray(row[1])
-                    ? `Converted an amount of ${row?.[1]?.[2]} from ${row?.[1]?.[0]} to ${row?.[1]?.[1]}`
-                    : row[1]
+                  Array.isArray(row[2])
+                    ? `Converted an amount of ${row?.[2]?.[2]} from ${row?.[2]?.[0]} to ${row?.[2]?.[1]}`
+                    : row[2]
                 }
               </StyledTableCell>
               {haveAction && (

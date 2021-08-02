@@ -12,7 +12,7 @@ function ConversionHistoryTable() {
     const tableRows = [...rows];
 
     parseHistory.forEach((e) => {
-      tableRows.push([formatDate(e.date, true), [e.from, e.to, e.startAmout, e.endAmout]]);
+      tableRows.push([e.date, formatDate(e.date, true), [e.from, e.to, e.startAmout, e.endAmout]]);
     });
 
     setRows(tableRows);

@@ -9,7 +9,7 @@ function ExchangeHistoryTable({ history = [] }) {
   React.useEffect(() => {
     const tableRows = [];
     history.forEach((e) => {
-      tableRows.push([formatDate(e.date), e.exchangeRate]);
+      tableRows.push([e.date, formatDate(e.date), e.exchangeRate]);
     });
 
     setRows(tableRows);
