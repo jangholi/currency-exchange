@@ -27,7 +27,7 @@ export default function BasicTable({ rows, columns, haveAction }) {
         <TableBody>
           {rows.map((row, i) => (
             <TableRow
-              key={row[0]}
+              key={row[1]}
               onMouseEnter={() => {
                 setIndex(i);
                 setShowAction(true);
