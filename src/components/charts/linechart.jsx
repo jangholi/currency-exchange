@@ -39,10 +39,10 @@ function Linechart({ history }) {
   React.useEffect(() => {
     const data = history.map((e) => ({
       name: e.date,
-      y: e.exchangeRate,
+      y: e.exchangeRate === '-' ? 0 : e.exchangeRate,
     }));
 
-    setOption(createOption(data));
+    setOption(createOption(data || []));
   }, [history]);
 
   return (
