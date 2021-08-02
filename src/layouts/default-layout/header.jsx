@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '../../components/tabs';
+import Button from '../../components/atoms/button';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -40,7 +41,7 @@ function Header() {
         <Tabs data={tabData} />
       </Grid>
       <Grid item className={classes.buttonContainer} md={2} xs={12}>
-        <Button color="primary">
+        <Button>
           LOGOUT
         </Button>
       </Grid>
