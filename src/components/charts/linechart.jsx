@@ -1,8 +1,10 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { useStyles } from './style';
 
 function Linechart({ history }) {
+  const classes = useStyles();
   const [options, setOption] = React.useState({});
 
   const createOption = (data) => ({
@@ -46,10 +48,12 @@ function Linechart({ history }) {
   }, [history]);
 
   return (
-    <HighchartsReact
-      highcharts={Highcharts}
-      options={options}
-    />
+    <div className={classes.root}>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={options}
+      />
+    </div>
   );
 }
 
