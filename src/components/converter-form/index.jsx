@@ -24,7 +24,7 @@ function ConverterForm({ submitHandler }) {
       to,
       startAmout: +startAmout,
       endAmout,
-      exchangeRate: (+startAmout / endAmout),
+      exchangeRate: endAmout === 0 ? '-' : (+startAmout / endAmout),
       date: Date.now(),
     };
 
@@ -41,15 +41,14 @@ function ConverterForm({ submitHandler }) {
 
     exchangeCurrency(params)
       .then((res) => {
+        setDataInhistory();
+
         setShowResult(true);
         setLoading(false);
         submitHandler();
 
         const price = res?.data?.[0]?.price;
-
         setEndAmout(price || 0);
-
-        setDataInhistory();
       })
       .catch(() => {
         setLoading(false);
