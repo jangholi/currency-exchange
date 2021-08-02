@@ -8,7 +8,7 @@ import { exchangeCurrency } from '../../api/currency';
 import { useStyles } from './style';
 import { getHistory, setHistory } from '../../utils/LocalStorageManagement';
 
-function ConverterForm() {
+function ConverterForm({ submitHandler }) {
   const classes = useStyles();
   const [startAmout, setStartAmout] = React.useState(0);
   const [endAmout, setEndAmout] = React.useState(0);
@@ -43,6 +43,7 @@ function ConverterForm() {
       .then((res) => {
         setShowResult(true);
         setLoading(false);
+        submitHandler();
 
         const price = res?.data?.[0]?.price;
 
