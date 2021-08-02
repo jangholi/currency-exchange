@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.text.primary,
-    fontSize: '3rem',
+    fontSize: '1.5rem',
     fontWeight: 'bold',
   },
 }));
