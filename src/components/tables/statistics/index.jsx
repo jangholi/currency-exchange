@@ -22,12 +22,12 @@ export default function BasicTable({ history }) {
       }
     });
 
-    const avg = history.length === 0 ? '-' : sum / history.length;
+    const avg = history.length === 0 ? '-' : (sum / history.length)?.toFixed(6);
 
     setRows([
       ['Lowest', min],
       ['Highest', max],
-      ['Average', avg.toFixed(6)],
+      ['Average', avg],
     ]);
   };
 
